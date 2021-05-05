@@ -20,6 +20,7 @@ window.onload = (event) => {
     "url(./cdn/images/blue-candy.png)",
   ];
 
+  const special = "url(./cdn/images/special-candy.png)";
   //create your board
   function createBoard() {
     for (let i = 0; i < width * width; i++) {
@@ -27,11 +28,11 @@ window.onload = (event) => {
       square.setAttribute("draggable", true);
       square.setAttribute("id", i);
       let randomColor = Math.floor(Math.random() * candyColors.length);
-      if (Math.floor(Math.random() * 11) == 5) {
-        square.style.backgroundImage = "url(./cdn/images/special-candy.png)";
-      } else {
+      //if (Math.floor(Math.random() * 11) == 5) {
+        //square.style.backgroundImage = special;
+      //} else {
         square.style.backgroundImage = candyColors[randomColor];
-      }
+      //}
       grid.appendChild(square);
       squares.push(square);
     }
@@ -399,3 +400,4 @@ function f1(index) {
     moveIntoSquareBelow();
   }, 100);
 };
+
