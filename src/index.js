@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 app.listen(port);
 
 console.log("ok!");
-
+/*
 // keepAlive.js
 const fetch = require("node-fetch");
 
@@ -54,5 +54,4 @@ function wake() {
 } 
 
 
-
-console.log("ok!");
+console.log("ok!"); */
