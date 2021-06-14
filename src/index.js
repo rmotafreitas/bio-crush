@@ -29,3 +29,30 @@ app.get("/", (req, res) => {
 app.listen(port);
 
 console.log("ok!");
+
+// keepAlive.js
+const fetch = require("node-fetch");
+
+// globals
+const interval = 25 * 60 * 1000; 
+const url = "https://bio-crush.herokuapp.com/";
+wake();
+function wake() {
+  try {
+    const handler = setInterval(() => {
+      fetch(url).then((res) =>
+        console
+          .log(`response-ok: ${res.ok}, status: ${res.status}`)
+          .catch((err) => console.error(`Error occured: ${err}`))
+      );
+    }, interval);
+  } catch (err) {
+    console.error("Error occured: retrying...");
+    clearInterval(handler);
+    return setTimeout(() => wake(), 10000);
+  }
+} 
+
+
+
+console.log("ok!");
